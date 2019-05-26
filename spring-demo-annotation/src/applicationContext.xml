@@ -12,7 +12,10 @@
    
    <context:component-scan base-package="com.luv2code.springdemo"></context:component-scan>
    
-   
+   <!-- load the properties file -->
+   <!-- the location of the properties file is very important. it must be stored in src directory. -->
+   <!-- this line should appear just after the <context:component-scan .../> line -->
+   <context:property-placeholder location="classpath:sport.properties"/>
  
 </beans>
 
