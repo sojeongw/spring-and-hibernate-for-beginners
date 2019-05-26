@@ -6,4 +6,5 @@ public interface Coach {
 	// It's only a specification.
 	public String getDailyWorkout();
 
+	public String getDailyFortune();
 }
