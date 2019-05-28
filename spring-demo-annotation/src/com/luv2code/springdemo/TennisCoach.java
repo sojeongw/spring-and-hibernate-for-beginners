@@ -20,8 +20,8 @@ public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
 	
 	// inject the properties values
-	@Value("${foo.email}")
-	private String email;
+//	@Value("${foo.email}")
+//	private String email;
 	
 	// define a default constructor
 	public TennisCoach() {
@@ -64,7 +64,7 @@ public class TennisCoach implements Coach {
 	
 	@Override
 	public String getDailyWorkout() {
-		System.out.println("property value injection: " + email);
+//		System.out.println("property value injection: " + email);
 		return "Practice your backhand volley";
 	}
 
