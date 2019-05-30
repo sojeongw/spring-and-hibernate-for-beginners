@@ -26,7 +26,8 @@ public class HelloWorldController {
 	// new a controller method to read form data
 	// and add data to the model
 	@RequestMapping("/processFormVersionTwo")
-	public String letsShoutDude(HttpServletRequest request, Model model) {
+	public String letsShoutDude(HttpServletRequest request, Model model) {	
+		// model is used to pass data around between controllers and view
 		
 		// read the request parameter from the HTML form
 		String theName = request.getParameter("studentName");
@@ -38,7 +39,7 @@ public class HelloWorldController {
 		String result = "YO! " + theName;
 		
 		// add message to the model
-		model.addAttribute("message", result);	// (name, value)
+		model.addAttribute("message", result);	// (name -> the same name that the form will use, value)
 		
 		return "helloworld";
 	}
