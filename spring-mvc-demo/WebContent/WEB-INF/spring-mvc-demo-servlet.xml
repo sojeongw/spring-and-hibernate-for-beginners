@@ -23,5 +23,14 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- Load custom message resources -->
+	<!-- id와 class명이 정확히 동일해야 함 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		
+		<!-- Load this property -->
+		<property name="basenames" value="resources/messages"/>
+	</bean>
 
 </beans>
