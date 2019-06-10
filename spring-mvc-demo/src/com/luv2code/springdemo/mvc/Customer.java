@@ -25,8 +25,8 @@ public class Customer {
 	private String postalCode;
 	
 	// @CourseCode(value="LUV", message="must start with LUV") 와 같은 의미. CourseCode에서 설정해줬기 때문.
-	// @CourseCode(value="TOPS", message="must start with TOPS") 이렇게 덮어쓰기 할 수도 있다.
 	@CourseCode
+	// @CourseCode(value="TOPS", message="must start with TOPS") 이렇게 덮어쓰기 할 수도 있다.
 	// customize 한 annotation을 사용하기 위한 field 생성. 이름은 아무거나 해도 됨.
 	private String courseCode;
 	
