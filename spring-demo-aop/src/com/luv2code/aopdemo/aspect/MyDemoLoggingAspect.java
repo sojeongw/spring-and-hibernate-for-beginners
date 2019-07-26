@@ -8,31 +8,30 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyDemoLoggingAspect {
 	
-	// this is where we add all of our related advices for logging
+	// this is where we add all of our related advises for logging
 	
 	// let's start with an @Before advice
 	
-	/* pointcut expression - Run this code BEFORE target object method: "public void addAccount()"
-	 * DAO가 달라도 addAccount를 가지고 있으면 모두 적용된다.
-	@Before("execution(public void addAccount())") 
+	/* fully qualified class name
+	 * 같은 method에 다른 parameter가 더 추가되면 동작하지 않는다.
+	@Before("execution(* add*(com.luv2code.aopdemo.Account))")
 	*/
 	
-	/* 특정 클래스만 적용하기 
-	 * @Before("execution(public void com.luv2code.aopdemo.dao.AccountDAO.addAccount())")
-	 */
-	
-	/* wild card
-	@Before("execution(public void add*())")
+	/* must use fully qualified class name but let't get lazy
+	 * this gets exception: warning no match for this type name
+	@Before("execution(* add*(Account))")
 	*/
 	
-	/* Modifier is optional, so you can delete it.
-	 * this only matches a method that returns void
-	@Before("execution(void add*())")
+	/* match on any number of arguments 
+	@Before("execution(* add*(com.luv2code.aopdemo.Account, ..))")
 	*/
 	
-	/* matches any return type
-	@Before("execution(* add*())")
+	/* match on ANY parameters
+	@Before("execution(* add*(..))")
 	*/
+	
+	// any return type, class, method, number of parameters in the package(aopdemo.dao)
+	@Before("execution(* com.luv2code.aopdemo.dao.*.*(..))")
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("\n=========>>> Executing @Before advice on method");

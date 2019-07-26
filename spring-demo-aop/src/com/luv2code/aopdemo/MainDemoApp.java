@@ -23,11 +23,14 @@ public class MainDemoApp {
 		
 		// call the business method, will match on the @Before advice
 		// behind the scenes, AOP advice is listening/monitoring the network, spying on all communications.
-		theAccountDAO.addAccount();
+		Account myAccount = new Account();
+		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.doWork();
 		
 		// call the membership business method
 		theMembershipDAO.addAccount();
 		theMembershipDAO.addSillyMember();
+		theMembershipDAO.goToSleep();
 		
 		
 		// close the context
