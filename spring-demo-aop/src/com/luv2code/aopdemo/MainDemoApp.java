@@ -3,6 +3,7 @@ package com.luv2code.aopdemo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.luv2code.aopdemo.dao.AccountDAO;
+import com.luv2code.aopdemo.dao.MembershipDAO;
 
 public class MainDemoApp {
 
@@ -13,17 +14,21 @@ public class MainDemoApp {
 				new AnnotationConfigApplicationContext(DemoConfig.class);
 		
 		// get the bean from spring container
-		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
+		AccountDAO theAccountDAO = 
+				context.getBean("accountDAO", AccountDAO.class);
 		
-		// call the business method
+		// get membership bean from spring container
+		MembershipDAO theMembershipDAO = 
+				context.getBean("membershipDAO", MembershipDAO.class);
+		
+		// call the business method, will match on the @Before advice
 		// behind the scenes, AOP advice is listening/monitoring the network, spying on all communications.
 		theAccountDAO.addAccount();
 		
-		// do it again!
-		System.out.println("\nlet's call it again!\n");
+		// call the membership business method
+		theMembershipDAO.addAccount();
+		theMembershipDAO.addSillyMember();
 		
-		// call the business nethod again
-		theAccountDAO.addAccount();
 		
 		// close the context
 		context.close();
