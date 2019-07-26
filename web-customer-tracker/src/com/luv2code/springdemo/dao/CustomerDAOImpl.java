@@ -69,4 +69,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return theCustomer;
 	}
 
+	@Override
+	public void deleteCustomer(int theId) {
+		
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// delete object with primary key
+		// createQuery에 있는 id 값과 setParameter의 값이 'customerId'로 일치해야 한다.
+		Query theQuery = currentSession.createQuery("delete from Customer where id=:customerId");
+		theQuery.setParameter("customerId", theId);
+		
+		// executeUpdate is just a generic purpose method. this works for update, delete and so on.
+		theQuery.executeUpdate();
+	}
+
 }

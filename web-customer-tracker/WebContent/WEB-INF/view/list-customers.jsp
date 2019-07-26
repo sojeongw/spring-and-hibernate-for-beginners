@@ -55,6 +55,11 @@
 			<!-- to retrieve the customer from the database and prepoluate a form -->
 				<c:param name="customerId" value="${tempCustomer.id}"/>
 			</c:url>
+			
+			<!-- construct an "delete" link with customer id -->
+			<c:url var="deleteLink" value="/customer/delete">
+				<c:param name="customerId" value="${tempCustomer.id}"/>
+			</c:url>
 				<tr>
 					<td>${tempCustomer.firstName}</td>
 					<td>${tempCustomer.lastName}</td>
@@ -64,6 +69,9 @@
 						<!-- display the update link -->
 						<!-- href 값은 위에서 url var로 설정해준 이름과 동일하게 한다. -->
 						<a href="${ updateLink }">Update</a>
+						| 
+						<a href="${ deleteLink }"
+							onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a> 
 					</td>
 				</tr>
 			</c:forEach>
