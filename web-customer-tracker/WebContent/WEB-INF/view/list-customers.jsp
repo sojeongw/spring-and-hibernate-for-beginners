@@ -23,6 +23,13 @@
 
 <div id="container">
 	<div id="content">
+		<!-- put new button: Add Customer -->
+		<!-- it's gonna call Spring Controller URL mapping 'showFormForAdd' -->
+		<!-- and add CSS style "add-button" -->
+		<input type="button" value="Add Customer"
+				onclick="window.location.href='showFormForAdd'; return false;"
+				class="add-button"
+				/>
 		<!-- add our html table here -->
 		<table>
 			<tr>
