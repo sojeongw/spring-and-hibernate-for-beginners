@@ -36,15 +36,35 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
+				<th>Action</th>
 			</tr>
 			
 			<!-- loop over and print our customers -->
 			<!-- items의 값이 CustomerController에서 attribute name으로 지정한 값이다. -->
 			<c:forEach var="tempCustomer" items="${customers}">
+			
+			<!-- construct an "update" link with customer id -->
+			<!-- we make use of the jstl custom tag for c:url -->
+			<!-- updateLink is variable name and value is the url mapping -->
+			<c:url var="updateLink" value="/customer/showFormForUpdate">
+			
+			<!-- customerId에 tempCustomer id를 담는다. -->
+			<!-- we're gonna create this variable called update link and add a parameter on it called customer id -->
+			<!-- and we'll plug in that actual customer's id that we're currently at in the loop -->
+			<!-- each customer has their own unique id and we're gonna use that -->
+			<!-- to retrieve the customer from the database and prepoluate a form -->
+				<c:param name="customerId" value="${tempCustomer.id}"/>
+			</c:url>
 				<tr>
 					<td>${tempCustomer.firstName}</td>
 					<td>${tempCustomer.lastName}</td>
 					<td>${tempCustomer.email}</td>
+					
+					<td>
+						<!-- display the update link -->
+						<!-- href 값은 위에서 url var로 설정해준 이름과 동일하게 한다. -->
+						<a href="${ updateLink }">Update</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
