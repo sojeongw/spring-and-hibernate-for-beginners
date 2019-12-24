@@ -3,6 +3,7 @@ package com.luv2code.aopdemo.aspect;
 import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -30,6 +31,16 @@ public class MyDemoLoggingAspect {
 		
 		// log the exception
 		System.out.println("\n========>>> The exception is: " + theExc);
+	}
+	
+	// 메서드가 성공하든 실패하든 결과에 상관없이 무조건 실행한다.
+	// After가 먼저 실행된 뒤에 최종 결과인 AfterThrowing과 AfterReturning이 실행된다.
+	@After("execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))")
+	public void afterFinallyFindAccountsAdvice(JoinPoint theJoinPoint) {
+		
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n========>>> Executing @Aftr(finally) on method: " + method);
+		
 	}
 	
 	@AfterReturning(
