@@ -1,11 +1,17 @@
 package com.luv2code.jackson.json.demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+// 필드에 하나라도 명시하지 않으면 에러가 나는데 만약 무시하고 싶은 데이터가 있다면 아래의 annotation을 사용한다.
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Student {
 
 	private int id;
 	private String firstName;
 	private String lastName;
 	private boolean active;
+	private Address address;
+	private String[] languages;
 	
 	public Student() {
 		
@@ -42,6 +48,20 @@ public class Student {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
-	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public String[] getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String[] languages) {
+		this.languages = languages;
+	}
 }
