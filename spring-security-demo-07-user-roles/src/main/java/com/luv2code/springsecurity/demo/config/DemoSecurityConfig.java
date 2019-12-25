@@ -28,7 +28,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {	// configure security of web paths in application, login, logout etc
 		
 		http.authorizeRequests()
-			.anyRequest().authenticated()
+			.antMatchers("/").hasRole("EMPLOYEE")	
+			.antMatchers("/leaders/**").hasRole("MANAGER")	// role에 따라 접근할 수 있는 페이지에 제한을 둔다.
+			.antMatchers("/systems/**").hasRole("ADMIN")
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage")	// show our custom form at the request mapping
@@ -36,6 +38,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter{
 				.permitAll()	// allow everyone to see login page. no need to be logged in.
 			.and()
 			.logout()
-				.permitAll();	// default로 logout 기능 support
+				.permitAll()	// default로 logout 기능 support
+			.and()
+			.exceptionHandling().accessDeniedPage("/access-denied");	// 에러 발생 시 이동할 페이지 설정
 	}
 }

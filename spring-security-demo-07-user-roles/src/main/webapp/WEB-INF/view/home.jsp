@@ -1,6 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <html>
 
 <head>
@@ -20,6 +19,24 @@
 		<br><br>
 		Role(s): <security:authentication property="principal.authorities"/>	<!-- display user role -->
 	</p>
+	
+	<!-- Add a link to point to /leaders...this is for the managers -->
+	<security:authorize access="hasRole('MANAGER')">
+	<p>
+		<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
+		(Only for Manager peeps)
+	</p>
+	
+	</security:authorize>
+	
+	<!-- Add a link to point to /systems...this is for the admins -->
+	<security:authorize access="hasRole('ADMIN')">
+	<p>
+		<a href="${pageContext.request.contextPath}/systems">IT System Meeting</a>
+		(Only for Admin peeps)
+	</p>
+	
+	</security:authorize>
 	
 	<hr>
 
