@@ -32,6 +32,10 @@ public class CustomerRestController {
 		
 		Customer theCustumer = customerService.getCustomer(customerId);
 		
+		if(theCustumer==null) {
+			throw new CustomerNotFoundException("Customer id not found - " + customerId);
+		}
+		
 		return theCustumer;
 	}
 }
