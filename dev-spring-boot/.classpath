@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="01-spring-boot-demo/src/main/java"/>
+	<classpathentry kind="src" path="01-spring-boot-demo/src/test/java"/>
+	<classpathentry kind="src" path="02-dev-tools-demo/.mvn/wrapper"/>
+	<classpathentry kind="src" path="02-dev-tools-demo/src/main/java"/>
+	<classpathentry kind="src" path="02-dev-tools-demo/src/test/java"/>
+	<classpathentry kind="src" path="03-actuator-demo/.mvn/wrapper"/>
+	<classpathentry kind="src" path="03-actuator-demo/src/main/java"/>
+	<classpathentry kind="src" path="03-actuator-demo/src/test/java"/>
+	<classpathentry kind="src" path="04-command-line-demo/.mvn/wrapper"/>
+	<classpathentry kind="src" path="04-command-line-demo/src/main/java"/>
+	<classpathentry kind="src" path="04-command-line-demo/src/test/java"/>
+	<classpathentry kind="src" path="mycoolapp/.mvn/wrapper"/>
+	<classpathentry kind="src" path="mycoolapp/src/main/java"/>
+	<classpathentry kind="src" path="mycoolapp/src/test/java"/>
+	<classpathentry kind="lib" path="01-spring-boot-demo/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="04-command-line-demo/target/mycoolapp-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="02-dev-tools-demo/target/classes"/>
+</classpath>
