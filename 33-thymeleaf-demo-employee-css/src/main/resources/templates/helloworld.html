@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Thymeleaf Demo</title>
+
+<!-- reference CSS file -->
+<!-- @ symbol references context path of your application(app root) -->
+<link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+
+<body>
+<!-- Thymeleaf expression -->
+<!-- thymeleaf accesses 'theDate' from the Spring MVC model -->
+<p th:text="'Time on the server is' + ${theDate}" class="funny"/>
+</body>
+</html>
